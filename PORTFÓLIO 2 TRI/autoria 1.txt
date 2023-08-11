@@ -1,0 +1,17 @@
+codigo para saber se estou permitido entrar na festa +18
+
+function verificarIdade(idade) {
+    if (idade >= 18) {
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
+const idadeVisitante = 22; 
+
+if (verificarIdade(idadeVisitante)) {
+    console.log("Você tem permissão para entrar na festa!");
+} else {
+    console.log("Você não tem permissão para entrar na festa.");
+}

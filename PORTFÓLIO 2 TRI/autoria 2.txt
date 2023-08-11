@@ -1,0 +1,34 @@
+CREATE TABLE Produtos (
+    ID INT PRIMARY KEY,
+    Nome VARCHAR(50),
+    Categoria VARCHAR(50),
+    Preco DECIMAL(10, 2),
+    Estoque INT
+);
+
+CREATE TABLE Clientes (
+    ID INT PRIMARY KEY,
+    Nome VARCHAR(50),
+    Email VARCHAR(50),
+    Telefone VARCHAR(15),
+    DataCadastro DATE
+);
+
+CREATE TABLE Pedidos (
+    ID INT PRIMARY KEY,
+    ClienteID INT,
+    DataPedido DATE,
+    Status VARCHAR(20),
+    Total DECIMAL(10, 2),
+    FOREIGN KEY (ClienteID) REFERENCES Clientes(ID)
+);
+
+CREATE TABLE ItensPedido (
+    ID INT PRIMARY KEY,
+    PedidoID INT,
+    ProdutoID INT,
+    Quantidade INT,
+    Subtotal DECIMAL(10, 2),
+    FOREIGN KEY (PedidoID) REFERENCES Pedidos(ID),
+    FOREIGN KEY (ProdutoID) REFERENCES Produtos(ID)
+);
